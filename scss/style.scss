@@ -1,0 +1,82 @@
+/*we use ../ because we created a folder for scss.  need to go up a directory*/
+
+@import '../node_modules/foundation-sites/scss/foundation';
+
+@include foundation-global-styles;
+@include foundation-grid;
+
+@import 'header';
+
+header{
+    text-align: center;
+}
+
+body{
+    background-color: mediumpurple;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+main{
+    @include grid-row();
+}
+
+section{
+    @include grid-column(6);
+}
+
+h1{
+    font-size:2em;
+    text-align: center;
+    display:block;
+}
+
+ul{
+    list-style: none;
+    border: 2px solid rebeccapurple;
+     background-color: white;
+     padding: 0;
+}
+
+li{
+    border: 1px solid darkblue;
+    border-radius: 10%;
+}
+
+h3{ 
+    font-size: 2em;
+    color: darkblue;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+p{
+    font-size: .75em;
+    color: darkblue;
+    display: inline-block;
+
+}
+
+
+footer{
+    @include grid-row();
+}
+
+#addChase, #addRun{
+    @include grid-column(2);
+    border:2px solid rebeccapurple;
+    border-radius: 10%;
+    background-color: purple;
+    padding: 10px;
+}
+
+.freeze, .flag, .tag{
+    font-size: .75em;
+    border:2px solid rebeccapurple;
+    border-radius: 10%;
+    margin: 2px 10px;
+    padding: 5px;
+    background-color:lightslategray;
+    font-weight: bold;
+    
+}
