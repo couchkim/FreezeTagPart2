@@ -38,8 +38,8 @@ ul{
 }
 
 li{
-    border: 1px solid darkblue;
-    border-radius: 10%;
+    border: 3px solid darkblue;
+    border-radius: 5%;
 }
 
 h3{ 
@@ -63,7 +63,7 @@ footer{
 }
 
 #addChase, #addRun{
-    @include grid-column(2);
+    @include grid-column(3);
     border:2px solid rebeccapurple;
     border-radius: 10%;
     background-color: purple;

@@ -21,6 +21,7 @@ console.log(players);
 
 let newChasers = require('./chaserTeam');
 let newRunners = require('./runnerTeam');
+let newGame = require('./gameObject');
 
 // creating prototype for parent of two teams
 
@@ -46,6 +47,7 @@ Team.prototype.won = function(team){
 
 let chasers = new newChasers('chasers');
 let runners = new newRunners('runners');
+let game =  new newGame(chasers, runners);
 
 window.addEventListener('load', function () {
 
@@ -61,6 +63,7 @@ window.addEventListener('load', function () {
     runners.add(players[9]);
 
     showPlayers(players);
+  
 
     console.log(chasers);
     console.log(runners);
@@ -69,17 +72,23 @@ window.addEventListener('load', function () {
     players[2].tag(players[7])
     players[5].tag(players[7]);
 
-    // could do chasers.team[0].tag(runners.team[0]);
-    // that would be better than generic players list
+    game.complete();
+    console.log(game.complete());
 
-    console.log(players[7].flag());
+    players[7].flag();
 
-    console.log(runners.won(chasers));
+    game.complete();
+    console.log(game.complete());
+    console.log(game.winner.type);
+
+
+// Game Scenario #2 - not working yet
 
     let game2result = require('./game2');
     let result = game2result(players);
-    console.log(game2result(players));
-    console.log(chasers.won(runners));
+    console.log(result);
+    console.log(game.complete());
+    console.log(game.winner.type);
 
     let addChaser = document.querySelector('#addChase');
     // addChaser.addEventListener('click', newChaser);
@@ -108,6 +117,11 @@ function showPlayers(list) {
                     let freezePlayer = document.createElement('button');
                     freezePlayer.setAttribute('class', 'tag');
                     freezePlayer.textContent = "Freeze " + list[j].name;
+
+                    freezePlayer.addEventListener('click', function () {
+                        list[i].tag(list[j]);
+                        // showplayers
+                    });
                     child1.appendChild(freezePlayer);
                 }
             }
